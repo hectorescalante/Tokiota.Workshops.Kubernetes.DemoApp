@@ -5,6 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddApplicationInsightsTelemetry();
 builder.Services.Configure<AppSettingsOptions>(builder.Configuration);
+//builder.Services.AddSpaStaticFiles(configuration =>
+//{
+//    configuration.RootPath = "ClientApp/build";
+//});
 
 
 builder.Services.AddControllersWithViews();
@@ -14,6 +18,10 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
+    //app.UseSpa(spa =>
+    //{
+    //    spa.Options.SourcePath = "ClientApp";
+    //});
 }
 
 app.UseStaticFiles();
@@ -24,6 +32,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
 
-app.MapFallbackToFile("index.html"); ;
+app.MapFallbackToFile("index.html");
 
 app.Run();

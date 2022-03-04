@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokiota.Workshops.Kubernetes.DemoApp", "Tokiota.Workshops.Kubernetes.DemoApp\Tokiota.Workshops.Kubernetes.DemoApp.csproj", "{FD59846B-D475-47F0-879C-96E5C4584EDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokiota.Workshops.Kubernetes.DemoApp", "src\Tokiota.Workshops.Kubernetes.DemoApp.csproj", "{FD59846B-D475-47F0-879C-96E5C4584EDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
