@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Flurl;
+using Flurl.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
 namespace Tokiota.Workshops.Kubernetes.DemoApp.Api
@@ -8,23 +10,24 @@ namespace Tokiota.Workshops.Kubernetes.DemoApp.Api
     public class CharactersController : ControllerBase
     {
         private readonly ILogger<CharactersController> _logger;
+        private readonly AppSettingsOptions _appSettings;
 
-        public CharactersController(ILogger<CharactersController> logger, IOptionsSnapshot<Settings> settings)
+        public CharactersController(ILogger<CharactersController> logger, IOptionsSnapshot<AppSettingsOptions> appSettings)
         {
             _logger = logger;
+            _appSettings = appSettings.Value;
         }
 
         [HttpGet]
-        public IEnumerable<Character> Get()
+        public async Task<IActionResult> Get()
         {
             _logger.LogInformation("Getting all characters...");
 
-            var characters = new List<Character>
-            {
-                new Character(1, "test name", "test status", "https://rickandmortyapi.com/api/character/avatar/1.jpeg")
-            };
+            var randomPage = new Random();
 
-            return characters;
+            var charactersPage = await _appSettings.BaseAddress.AppendPathSegment("/api/character").SetQueryParam("page", randomPage.Next(1, 40)).GetJsonAsync();
+
+            return Ok(charactersPage.results);
         }
     }
 }
