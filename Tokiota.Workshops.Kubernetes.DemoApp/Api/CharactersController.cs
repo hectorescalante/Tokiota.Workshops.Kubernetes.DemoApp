@@ -14,15 +14,17 @@ namespace Tokiota.Workshops.Kubernetes.DemoApp.Api
             _logger = logger;
         }
 
-        public IActionResult GetAll()
+        [HttpGet]
+        public IEnumerable<Character> Get()
         {
             _logger.LogInformation("Getting all characters...");
 
-            var characters = new List<Character>();
+            var characters = new List<Character>
+            {
+                new Character(1, "test name", "test status", "https://rickandmortyapi.com/api/character/avatar/1.jpeg")
+            };
 
-            characters.Add(new Character(1, "test name", "test status", "https://rickandmortyapi.com/api/character/avatar/1.jpeg"));
-
-            return Ok(characters);
+            return characters;
         }
     }
 }

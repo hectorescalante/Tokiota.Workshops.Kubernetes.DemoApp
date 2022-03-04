@@ -1,7 +1,10 @@
+using Tokiota.Workshops.Kubernetes.DemoApp.Api;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddApplicationInsightsTelemetry();
+builder.Services.Configure<Settings>(builder.Configuration);
 
 builder.Services.AddControllersWithViews();
 
