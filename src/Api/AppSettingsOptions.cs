@@ -2,6 +2,6 @@
 {
     public class AppSettingsOptions
     {
-        public string BaseAddress { get; set; }
+        public string? BaseAddress { get; set; }
     }
 }
