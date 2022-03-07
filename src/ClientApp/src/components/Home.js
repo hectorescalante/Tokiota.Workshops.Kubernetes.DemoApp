@@ -11,7 +11,7 @@ export class Home extends Component {
         <ul>
           <li>Demo Web Application <a href='https://github.com/hectorescalante/Tokiota.Workshops.Kubernetes.DemoApp'>Source Code</a></li>
           <li>PowerPoint <a href='https://tokiota-my.sharepoint.com/:p:/p/hector_escalante/EcYHpjwVO7JBjixzy4SVNjMBdntKgWdEKSHl_b_QfaLaeg?e=3xxdJM'>Presentation</a></li>
-          <li>Docker <a href='https://hub.docker.com/repository/docker/hescalante/k8s-demo'>Image</a></li>
+          <li>Docker <a href='https://hub.docker.com/r/hescalante/k8s-demo/tags'>Image</a></li>
         </ul>
         <br />
         <br />
